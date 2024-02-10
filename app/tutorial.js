@@ -1,11 +1,10 @@
-const sum = (num1, num2) => num1 + num2;
-const PI = 3.14
-class SomeMathObject {
-    constructor() {
-        console.log('obj created.');
-    }
-}
+const EventEmitter = require('events');
+const eventEmitter = new EventEmitter();
+const eventName = 'tutorial';
 
-module.exports = {
-    sum: sum, PI: PI, SomeMathObject: SomeMathObject
-}
+eventEmitter.on(eventName, (num1, num2)=>{
+    console.log(eventName + ' event has occurred.');
+    console.log(num1 + num2);
+});
+
+eventEmitter.emit(eventName, 1, 3)
